@@ -14,12 +14,12 @@ var userSchema = mongoose.Schema({
     orders: [{
         amount: Number,
         time: Date,
-        product: {
+        product: [{
             product_id: String,
             name: String,
             description: String,
             images: [Object]
-        }
+        }]
     }]
 });
 
