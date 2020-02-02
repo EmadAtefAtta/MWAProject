@@ -1,9 +1,10 @@
 const User = require('../Modules/users');
 const jwtHelper = require('jsonwebtoken');
+const mySecretKey='#!myTotalySecretKey!#';
 
 const handleSignIn = async function (req, res, next) {
-    let existUser = User.find().findUserByEmailAndPassword(req.body.email, req.body.password)
-    if (existUser && existUser.email != null) {
+    let existUser = await User.find().findUserByEmailAndPassword(req.body.email, req.body.password)
+     if (existUser && existUser.email != null) {
         let payload = {
             id: existUser._id,
             firstName: existUser.firstName,
@@ -11,7 +12,7 @@ const handleSignIn = async function (req, res, next) {
             email: existUser.email,
             role: existUser.role
         };
-        const token = await jwtHelper.sign(payload);
+        const token = await jwtHelper.sign(payload,mySecretKey);
         console.log("payload: ", payload);
 
         res.json({

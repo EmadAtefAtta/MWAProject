@@ -1,12 +1,19 @@
 var express = require('express');
 var router = express.Router();
+const {handleAddProduct,handleRemoveProduct,handleUpdateProduct} =require('../Controllers/admin')
+ 
 
-/* GET home page. */
+
+ 
 /// add product 
+router.post('/addProduct',handleAddProduct)
+
 ///remove product
+router.delete('/removeProduct',handleRemoveProduct)
+
 ///update product 
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
-});
+router.put('/updateProduct',handleUpdateProduct)
+
+
 
 module.exports = router;

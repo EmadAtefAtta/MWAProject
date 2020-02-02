@@ -1,11 +1,14 @@
 var express = require('express');
 var router = express.Router();
+const { handleAddToCart, handleMakePayment } = require('../Controllers/orders')
 
 /* GET home page. */
-//add to cart 
+
 // make payment
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
-});
+router.post('/makePayment', handleMakePayment);
+
+//add to cart 
+router.post('addToCart', handleAddToCart)
+
 
 module.exports = router;
