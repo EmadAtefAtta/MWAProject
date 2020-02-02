@@ -11,13 +11,13 @@
 #  "password":"123456"
 #  }
 
-POST http://localhost:3000/users/signin HTTP/1.1
-content-type: application/json
+# POST http://localhost:3000/users/signin HTTP/1.1
+# content-type: application/json
 
-{
- "email":"Ha@miu.edu",
- "password":"123456"
- }
+# {
+#  "email":"Ha@miu.edu",
+#  "password":"123456"
+#  }
 
 
 # POST http://localhost:3000/users/findbyemail HTTP/1.1
