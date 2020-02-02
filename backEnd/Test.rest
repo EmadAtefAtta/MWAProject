@@ -1,0 +1,12 @@
+
+#run HTTP Request and press Ctrl + Alt + R 
+
+POST http://localhost:3000/users/signup HTTP/1.1
+content-type: application/json
+
+{
+ "firstName":"hedra",
+ "lastName":"louka", 
+ "email":"Habdelshahid@miu.edu",
+ "password":"123456"
+ }
