@@ -8,7 +8,6 @@ export class reqJwtInterceptor implements HttpInterceptor{
 
     constructor(private authenticationService: AuthenticationService){}
 intercept(request:HttpRequest<any>,next:HttpHandler): Observable<HttpEvent<any>>{
-
     let user=this.authenticationService.currentUserValue;
     if(user && user.token){
         request=request.clone({

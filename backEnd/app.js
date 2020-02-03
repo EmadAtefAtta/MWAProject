@@ -46,7 +46,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 //custom middleware
-// app.use('/admin', authorization);
+ app.use('/admin', authorization);
 app.use('/orders', authorization);
 
 

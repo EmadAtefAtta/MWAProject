@@ -7,7 +7,9 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import { MatCardModule } from '@angular/material';
 import {MatInputModule} from '@angular/material';
 import {MatListModule} from '@angular/material/list';
+import {HTTP_INTERCEPTORS} from '@angular/common/http';
 
+import { reqJwtInterceptor} from './interceptors/reqJwt.interceptors';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
@@ -46,7 +48,7 @@ import { RouterModule } from '@angular/router';
       
     ])
   ],
-  providers: [],
+  providers: [{provide:HTTP_INTERCEPTORS,useClass:reqJwtInterceptor,multi:true}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
