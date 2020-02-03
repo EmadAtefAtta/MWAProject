@@ -6,6 +6,7 @@ import { ReactiveFormsModule} from '@angular/forms';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { MatCardModule } from '@angular/material';
 import {MatInputModule} from '@angular/material';
+import {MatListModule} from '@angular/material/list';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -15,7 +16,10 @@ import { RegisterComponent } from './register/register.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { from } from 'rxjs';
 import { HttpClientModule } from '@angular/common/http';
+import { AdminAddProductComponent } from './admin-add-product/admin-add-product.component';
+
 import { RouterModule } from '@angular/router';
+ 
 
 
 @NgModule({
@@ -23,9 +27,9 @@ import { RouterModule } from '@angular/router';
     AppComponent,
     LoginComponent,
     HomeComponent,
+    RegisterComponent,
+    AdminAddProductComponent,
     RegisterComponent
-  
-   
   ],
   imports: [
     BrowserModule,
@@ -36,6 +40,7 @@ import { RouterModule } from '@angular/router';
     MatCardModule,
     MatFormFieldModule,
     MatInputModule,
+    MatListModule,
     RouterModule.forRoot([
       {path:'product',loadChildren:()=>import('./product/product.module').then(m=>m.ProductModule)}
       
