@@ -1,1 +1,64 @@
-<p>register works!</p>
+<div class="container card-center-container" *ngIf="!isRegisterd">
+    <mat-card>
+        <mat-card-header>
+            <mat-card-title>Register</mat-card-title>
+            <mat-card-subtitle>User your email to login</mat-card-subtitle>
+        </mat-card-header>
+
+        <mat-card-content>
+            <div class="alert alert-danger" *ngIf="error">
+                <strong>Error!</strong> {{error}}
+            </div>
+            <div class="alert alert-info" role="alert" *ngIf="message">
+                {{message}}
+            </div>
+            <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+                <mat-form-field class="full-width-input ">
+                    <input matInput placeholder="First Name" formControlName="firstName" [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }">
+                    <mat-error *ngIf="submitted && f.firstName.errors && f.firstName.errors.required">FirstName is required</mat-error>
+
+                </mat-form-field>
+
+                <mat-form-field class="full-width-input ">
+                    <input matInput placeholder="lastName" formControlName="lastName" [ngClass]="{ 'is-invalid': submitted && f.lastName.errors }">
+                    <mat-error *ngIf="submitted && f.lastName.errors && f.lastName.errors.required">lastName is required</mat-error>
+                </mat-form-field>
+
+                <mat-form-field class="full-width-input ">
+                    <input matInput placeholder="email" formControlName="email" [ngClass]="{ 'is-invalid': submitted && f.email.errors }">
+                    <mat-error *ngIf="submitted && f.email.errors && f.email.errors.required">email is required</mat-error>
+                    <mat-error *ngIf="submitted && f.email.errors && f.email.errors.email">Write valid email address</mat-error>
+                    <mat-error *ngIf="submitted && f.email.errors && f.email.errors.usernameInUse">User with this email already exist</mat-error>
+                </mat-form-field>
+
+                <mat-form-field class="full-width-input ">
+                    <input matInput placeholder="password" type="password" formControlName="password" [ngClass]="{ 'is-invalid': submitted && f.password.errors }">
+                    <mat-error *ngIf="submitted && f.password.errors && f.password.errors.required">password is required</mat-error>
+                    <mat-error *ngIf="submitted && f.password.errors && f.password.errors.minlength">Password must be at least 6 characters</mat-error>
+
+                </mat-form-field>
+
+
+                <button class="mt-15" mat-raised-button color="primary" [disabled]="loading">Register</button>
+                <img *ngIf="loading" src="../../assets/img/loading.gif" />
+            </form>
+        </mat-card-content>
+    </mat-card>
+    <a [routerLink]="['/login']" class="mt-15">Already Have an account!!</a>
+</div>
+
+<div class="site-section" *ngIf="isRegisterd">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <span class="icon-check_circle display-3 text-success"></span>
+                <h2 class="display-3 text-black">Congrtulations!</h2>
+                <p class="lead mb-5">You are registred successfuly,
+                    We are redirecting you to the home page
+                </p>
+        
+
+            </div>
+        </div>
+    </div>
+</div>
