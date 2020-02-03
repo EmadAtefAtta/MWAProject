@@ -18,6 +18,9 @@ import { from } from 'rxjs';
 import { HttpClientModule } from '@angular/common/http';
 import { AdminAddProductComponent } from './admin-add-product/admin-add-product.component';
 
+import { RouterModule } from '@angular/router';
+ 
+
 
 @NgModule({
   declarations: [
@@ -26,7 +29,7 @@ import { AdminAddProductComponent } from './admin-add-product/admin-add-product.
     HomeComponent,
     RegisterComponent,
     AdminAddProductComponent,
-   
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
@@ -37,7 +40,11 @@ import { AdminAddProductComponent } from './admin-add-product/admin-add-product.
     MatCardModule,
     MatFormFieldModule,
     MatInputModule,
-    MatListModule
+    MatListModule,
+    RouterModule.forRoot([
+      {path:'product',loadChildren:()=>import('./product/product.module').then(m=>m.ProductModule)}
+      
+    ])
   ],
   providers: [],
   bootstrap: [AppComponent]
