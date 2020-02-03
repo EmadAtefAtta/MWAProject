@@ -9,7 +9,7 @@ const {handleAddProduct,handleRemoveProduct,handleUpdateProduct} =require('../Co
 router.post('/addProduct',handleAddProduct)
 
 ///remove product
-router.delete('/removeProduct',handleRemoveProduct)
+router.delete('/removeProduct/:id',handleRemoveProduct)
 
 ///update product 
 router.put('/updateProduct',handleUpdateProduct)

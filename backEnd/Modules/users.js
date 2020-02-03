@@ -12,8 +12,10 @@ var userSchema = mongoose.Schema({
     createdAt: Date,
     updatedAt: Date,
     orders: [{
+        orderId:Number,
         amount: Number,
         time: Date,
+        status: String,
         product: [{
             product_id: String,
             name: String,
