@@ -1,0 +1,61 @@
+<div class="container mt-100">
+    <div class="alert alert-danger" *ngIf="error">
+        <strong>Error!</strong> {{error}}
+    </div>
+    <div class="alert alert-info" role="alert" *ngIf="message">
+        {{message}}
+    </div>
+    <mat-card>
+        <mat-card-title>Products Management</mat-card-title>
+        <mat-card-subtitle> Add Product</mat-card-subtitle>
+        <mat-card-content>
+            <form [formGroup]="addform" #myForm>
+                <mat-form-field class="full-width-input">
+                    <input matInput formControlName="productName" placeholder="product Name"
+                        [ngClass]="{ 'is-invalid': submitted && f.productName.errors }">
+                    <mat-error *ngIf="submitted && f.productName.errors && f.productName.errors.required">
+                        Product name is required
+                    </mat-error>
+                </mat-form-field>
+                <mat-form-field class="full-width-input">
+                    <input matInput formControlName="productType" placeholder="product Type"
+                        [ngClass]="{ 'is-invalid': submitted && f.productType.errors }">
+                    <mat-error *ngIf="submitted && f.productType.errors && f.productType.errors.required">
+                        Product Type is required
+                    </mat-error>
+                </mat-form-field>
+                <mat-form-field class="full-width-input">
+                    <input matInput formControlName="productPrice" type="number" class="example-right-align"
+                        placeholder="product Price" [ngClass]="{ 'is-invalid': submitted && f.productPrice.errors }">
+                    <span matPrefix>$&nbsp;</span>
+                    <span matSuffix>.00</span>
+                    <mat-error *ngIf="submitted && f.productPrice.errors && f.productPrice.errors.required">
+                        Product name is required
+                    </mat-error>
+                </mat-form-field>
+                <mat-form-field class="full-width-input">
+                    <textarea matInput formControlName="productDetail" placeholder="product Detail"></textarea>
+                </mat-form-field>
+                <button type="button" (click)="onAddImage()" class="btn btn-default">Add new Image</button>
+                <br>
+                <mat-form-field formArrayName="Pictures">
+                    <mat-list-item *ngFor="let itemrow of f.Pictures.controls; let i=index" [formGroupName]="i">
+                        <input matInput type="text" placeholder="Image URL" formControlName="productPicture"
+                            [ngClass]="{ 'is-invalid': submitted && f.Pictures.controls[i].errors }">
+                        <mat-error
+                            *ngIf="submitted && f.Pictures.controls[i].errors && f.Pictures.controls[i].errors.required">
+                            Image URL is required
+                        </mat-error>
+                        <input type="button" *ngIf="f.Pictures.controls.length > 1" (click)="onDeleteImage(i)"
+                            class="btn btn-danger" value="Delete Image">
+
+                    </mat-list-item>
+                </mat-form-field>
+                <button class="btn btn-primary" (click)="onSubmit()">Submit</button>
+
+                <img *ngIf="loading" src="../../assets/img/loading.gif" />
+            </form>
+        </mat-card-content>
+        <mat-card-actions></mat-card-actions>
+    </mat-card>
+</div>
