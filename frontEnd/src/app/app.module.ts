@@ -15,6 +15,7 @@ import { RegisterComponent } from './register/register.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { from } from 'rxjs';
 import { HttpClientModule } from '@angular/common/http';
+import { RouterModule } from '@angular/router';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { HttpClientModule } from '@angular/common/http';
     AppComponent,
     LoginComponent,
     HomeComponent,
-    RegisterComponent,
+    RegisterComponent
+  
    
   ],
   imports: [
@@ -33,7 +35,11 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserAnimationsModule,
     MatCardModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    RouterModule.forRoot([
+      {path:'product',loadChildren:()=>import('./product/product.module').then(m=>m.ProductModule)}
+      
+    ])
   ],
   providers: [],
   bootstrap: [AppComponent]
