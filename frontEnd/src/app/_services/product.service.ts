@@ -14,7 +14,7 @@ export class ProductService {
 
   constructor(private http: HttpClient) { }
 
-  getAllProducts() {
+   getAllProducts() {
     return this.http.get<any>(this.getProductsURL)
   }
   getOneProduct(id: string) {
