@@ -32,8 +32,8 @@ export class AuthenticationService {
         this.currentUserSubject.next(data.user);
       }
       else {
-        //throw new Error(data.msg);
-        throw new Error('Insert correct email and password')
+          throw new Error(data.msg);
+        //throw new Error('Insert correct email and password')
       }
 
       return data;
