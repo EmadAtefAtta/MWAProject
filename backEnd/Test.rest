@@ -20,9 +20,11 @@
 #  }
 
 
-POST http://localhost:3000/users/findbyemail HTTP/1.1
-content-type: application/json
+# POST http://localhost:3000/users/findbyemail HTTP/1.1
+# content-type: application/json
 
-{
- "email":"Habdelshahid@miu.edu"
- }
+# {
+#  "email":"Habdelshahid@miu.edu"
+#  }
+ 
+GET  http://localhost:3000/product/AllProducts HTTP/1.1

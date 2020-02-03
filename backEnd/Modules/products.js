@@ -8,16 +8,16 @@ var productSchema= mongoose.Schema({
     productDetail:String
 });
 
-userSchema.pre('save', function (next) {
+// userSchema.pre('save', function (next) {
 
-    let currentDate = new Date();
-    this.updatedAt = currentDate;
-    if (!this.createdAt) {
-        this.createdAt = currentDate;
-    }
+//     let currentDate = new Date();
+//     this.updatedAt = currentDate;
+//     if (!this.createdAt) {
+//         this.createdAt = currentDate;
+//     }
 
-    next();
-});
+//     next();
+// });
 
 productSchema.query.getAllProduct=function(){
     return this.find({});
