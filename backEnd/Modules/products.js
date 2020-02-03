@@ -4,7 +4,7 @@ var productSchema= mongoose.Schema({
     productName:String,
     productType:String,
     productPrice:String,
-    productPicture:[Object],
+    // productPicture:[Object],
     productDetail:String
 });
 
@@ -24,6 +24,22 @@ productSchema.query.getAllProduct=function(){
 }
 productSchema.query.getOneProduct=function(id){
     return this.findOne({_id:id});
+}
+//add new products
+ productSchema.query.insertNewProduct=async function (newproducts){
+     return await this.insert({newproducts});
+}
+
+ //update by Id  new products
+
+productSchema.query.findByIdAndUpdate= function (id){
+    return this.updatedAt({_id:id});
+}
+
+ //delete the product by id 
+
+productSchema.query.findByIdAndRemove= function (id){
+    return this.remove({_id:id});
 }
 
 
