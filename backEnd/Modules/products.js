@@ -1,34 +1,36 @@
 const mongoose = require('mongoose');
+var Schema = mongoose.Schema;
 
-var productSchema= mongoose.Schema({
+var productSchema= new Schema({
     productName:String,
     productType:String,
     productPrice:String,
-    // productPicture:[Object],
-    productDetail:String
+    productDetail:String,
+    productPicture:[Object]
+    
 });
 
-// userSchema.pre('save', function (next) {
+productSchema.pre('save', function (next) {
 
-//     let currentDate = new Date();
-//     this.updatedAt = currentDate;
-//     if (!this.createdAt) {
-//         this.createdAt = currentDate;
-//     }
+    let currentDate = new Date();
+    this.updatedAt = currentDate;
+    if (!this.createdAt) {
+        this.createdAt = currentDate;
+    }
 
-//     next();
-// });
+    next();
+});
 
-productSchema.query.getAllProduct=function(){
+productSchema.query.getAllProduct= function(){
     return this.find({});
 }
 productSchema.query.getOneProduct=function(id){
     return this.findOne({_id:id});
 }
 //add new products
- productSchema.query.insertNewProduct=async function (newproducts){
-     return await this.insert({newproducts});
-}
+//  productSchema.query.insertNewProduct=async function (newproducts){
+//      return await this.insert({newproducts});
+// }
 
  //update by Id  new products
 
@@ -43,4 +45,4 @@ productSchema.query.findByIdAndRemove= function (id){
 }
 
 
-module.exports=mongoose.model('products',productSchema);
+  module.exports=mongoose.model('products',productSchema);

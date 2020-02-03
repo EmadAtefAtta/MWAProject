@@ -1,7 +1,5 @@
 
-const products=require("../modules/products");
-
-
+const products=require("../Modules/products");
 
 const handleaGetProducts = async function (req, res, next) {
     let productlist=await products.find().getAllProduct(); 
