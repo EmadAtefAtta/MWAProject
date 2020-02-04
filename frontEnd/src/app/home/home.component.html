@@ -1,7 +1,24 @@
 <body>
 
-  <div class="bg"></div>
-
-  <p class="py-5 text-center">This example creates a full page background image. Try to resize the browser window to see how it always will cover the full screen (when scrolled to top), and that it scales nicely on all screen sizes.</p>
+  <div class="site-blocks-cover inner-page py-5" data-aos="fade"  >
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-4 ml-auto order-lg-2 align-self-start">
+                <div class="site-block-cover-content">
+                    <h2 class="sub-title">Register now to: </h2>
+                    <h1>Get 30% discound</h1>
+                    <h2 class="sub-title">On your first purchase</h2>
+                    <p class="mt-50">
+                        <!-- <a  (click)=onact() class="btn btn-black rounded-0">Register</a> -->
+                        <a class="nav-link" routerLink="/register" routerLinkActive="active">register</a>
+                    </p>
+                </div>
+            </div>
+            <div class="col-lg-8 order-1 align-self-end">
+                <img src="../../assets/img/back1.jpg" alt="Image" class="img-fluid">
+            </div>
+        </div>
+    </div>
+</div>
 
 </body>
