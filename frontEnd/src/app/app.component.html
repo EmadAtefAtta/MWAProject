@@ -38,10 +38,10 @@
     </ul>
     <ul class="navbar nav justify-content-end">
 
-      <a class="nav-link" routerLink='#' routerLinkActive="active">Cart:{{counter}} </a>
-      <a class="nav-link" routerLink="/login" routerLinkActive="active">login</a>
-      <a class="nav-link" routerLink="/register" routerLinkActive="active">register</a>
-      <a class="nav-link" routerLink='#' routerLinkActive="active" (click)="logout()">LogOut</a>
+      <a class="nav-link" routerLink='#' routerLinkActive="active"  *ngIf="currentUser">Cart:{{counter}} </a>
+      <a class="nav-link" routerLink="/login" routerLinkActive="active"  *ngIf="!currentUser">login</a>
+      <a class="nav-link" routerLink="/register" routerLinkActive="active" *ngIf="!currentUser">register</a>
+      <a class="nav-link" routerLink='#' routerLinkActive="active" (click)="logout()"  *ngIf="currentUser">LogOut</a>
     </ul>
 
   </div>
