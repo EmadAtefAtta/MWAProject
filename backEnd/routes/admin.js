@@ -12,7 +12,7 @@ router.post('/addProduct',handleAddProduct)
 router.delete('/removeProduct/:id',handleRemoveProduct)
 
 ///update product 
-router.put('/updateProduct',handleUpdateProduct)
+router.put('/updateProduct/:id',handleUpdateProduct)
 
 
 
