@@ -24,6 +24,7 @@ import { AdminAddProductComponent } from './admin-add-product/admin-add-product.
 
 import { RouterModule } from '@angular/router';
 import { AdminListComponent } from './admin-list/admin-list.component';
+import { appStoreProviders } from './app.store';
  
 
 @NgModule({
@@ -53,7 +54,7 @@ import { AdminListComponent } from './admin-list/admin-list.component';
       
     ])
   ],
-  providers: [{provide:HTTP_INTERCEPTORS,useClass:reqJwtInterceptor,multi:true}],
+  providers: [appStoreProviders,{provide:HTTP_INTERCEPTORS,useClass:reqJwtInterceptor,multi:true}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
