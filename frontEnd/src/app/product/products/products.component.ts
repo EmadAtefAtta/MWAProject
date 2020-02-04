@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductService } from 'src/app/_services/product.service';
 import { Router } from '@angular/router';
+import { product } from 'src/app/model/product';
 
 
 @Component({
@@ -20,9 +21,9 @@ export class ProductsComponent implements OnInit {
     console.log(this.products[0])
   }
 
-  goToProduct(name: String) {
-    console.log(name)
-    //this.route.navigate(['product', 6]);
+  goToProduct(product_: product) {
+    console.log('befor redirect'+ product_._id)
+    this.route.navigate(['product',product_._id ]);
   }
 
 }

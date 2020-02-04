@@ -1,1 +1,54 @@
-<p>product-details works!</p>
+<!-- Page Content -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<div class="container">
+
+    <!-- Portfolio Item Heading -->
+    <h1 class="my-4">{{product.productName}}
+      <small>{{product.productType}}</small>
+    </h1>
+  
+    <!-- Portfolio Item Row -->
+    <div class="row">
+  
+      <div class="col-md-8">
+        <img class="img-fluid" src="{{product.productPicture[0].productPicture}}" alt="product image">
+      </div>
+  
+      <div class="col-md-4">
+        <h3 class="my-3">product Description</h3>
+        <p>{{product.productDetail}}</p>
+
+        <h3 class="my-3">product Details</h3>
+        <ul>
+          <li><b>price</b>:$ {{product.productPrice}}</li>
+          <li><b>type</b> : {{product.productType}}</li>
+
+        </ul>
+
+        <div class="rating">
+            <div class="stars">
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star"></span>
+                <span class="fa fa-star"></span>
+            </div>
+            <span class="review-no">41 reviews</span>
+        </div>
+        
+              <div class="row">
+                <div class="col-sm-12 col-md-6 col-lg-6">
+                    <button (click)="addToCart(product)" class="btn btn-success btn-lg">Add to cart (${{product.productPrice}})</button>
+                </div>
+                </div>
+              
+            
+      </div>
+  
+    </div>
+    <!-- /.row -->
+  
+    <!-- Related Projects Row -->
+  
+</div>
+  <!-- /.container -->
