@@ -7,6 +7,8 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import { MatCardModule } from '@angular/material';
 import {MatInputModule} from '@angular/material';
 import {MatListModule} from '@angular/material/list';
+import {MatTableModule} from '@angular/material/table';
+import {MatPaginatorModule} from '@angular/material/paginator';
 import {HTTP_INTERCEPTORS} from '@angular/common/http';
 
 import { reqJwtInterceptor} from './interceptors/reqJwt.interceptors';
@@ -21,8 +23,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { AdminAddProductComponent } from './admin-add-product/admin-add-product.component';
 
 import { RouterModule } from '@angular/router';
+import { AdminListComponent } from './admin-list/admin-list.component';
  
-
 
 @NgModule({
   declarations: [
@@ -31,7 +33,8 @@ import { RouterModule } from '@angular/router';
     HomeComponent,
     RegisterComponent,
     AdminAddProductComponent,
-    RegisterComponent
+    RegisterComponent,
+    AdminListComponent
   ],
   imports: [
     BrowserModule,
@@ -43,6 +46,8 @@ import { RouterModule } from '@angular/router';
     MatFormFieldModule,
     MatInputModule,
     MatListModule,
+    MatTableModule,
+    MatPaginatorModule,
     RouterModule.forRoot([
       {path:'product',loadChildren:()=>import('./product/product.module').then(m=>m.ProductModule)}
       

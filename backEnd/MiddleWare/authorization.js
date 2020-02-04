@@ -26,6 +26,7 @@ function isAuthenticated(req, res, next) {
         }
 
     } else {
+        console.log(req.headers)
         // No authorization header exists on the incoming
         // request, return not authorized and throw a new error 
         res.status(500).json({ success: 0, msg: 'Not Authorized' });

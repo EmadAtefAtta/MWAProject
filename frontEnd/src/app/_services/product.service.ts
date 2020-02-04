@@ -9,8 +9,8 @@ export class ProductService {
   getProductsURL: string = 'http://localhost:3000/product/AllProducts';
   getOneProductURL: string = 'http://localhost:3000/product/AllProducts/';
   addProductURL: string = 'http://localhost:3000/admin/addProduct';
-  removeProductURL: string = 'http://localhost:3000/admin//removeProduct/';
-  updateProductURL: string = 'http://localhost:3000/admin//updateProduct';
+  removeProductURL: string = 'http://localhost:3000/admin/removeProduct/';
+  updateProductURL: string = 'http://localhost:3000/admin/updateProduct';
 
   constructor(private http: HttpClient) { }
 
@@ -25,7 +25,10 @@ export class ProductService {
     return this.http.post(this.addProductURL, product)
   }
   removeProduct(id: string) {
-    return this.http.delete(this.removeProductURL + id)
+    
+    return this.http.delete(this.removeProductURL+id).subscribe(console.log)
+   
+  
   }
   updateProduct(product: product) {
     return this.http.put(this.updateProductURL, product)

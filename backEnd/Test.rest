@@ -1,0 +1,52 @@
+
+#run HTTP Request and press Ctrl + Alt + R 
+
+# POST http://localhost:3000/users/signup HTTP/1.1
+# content-type: application/json
+
+# {
+#  "firstName":"hedra",
+#  "lastName":"louka", 
+#  "email":"Ha@miu.edu",
+#  "password":"123456"
+#  }
+
+# POST http://localhost:3000/users/signin HTTP/1.1
+# content-type: application/json
+
+# {
+#  "email":"Ha@miu.edu",
+#  "password":"123456"
+#  }
+
+
+# POST http://localhost:3000/users/findbyemail HTTP/1.1
+# content-type: application/json
+
+# {
+#  "email":"Habdelshahid@miu.edu"
+#  }
+ 
+# GET  http://localhost:3000/product/AllProducts HTTP/1.1
+
+# GET http://localhost:3000/product/AllProducts/5e388f9e83a39531203a102e HTTP/1.1
+
+# DELETE http://localhost:3000/admin/removeProduct/5e3889c0b07ea71e74d32700 HTTP/1.1
+
+PUT  http://localhost:3000/admin/updateProduct/5e388f9e83a39531203a102e HTTP/1.1
+content-type: application/json
+
+{
+     "productDetail": "This fits your .Make sure"
+ }
+
+
+# POST http://localhost:3000/admin/addProduct HTTP/1.1
+# content-type: application/json
+
+# {
+#     "productName":"Apple",
+#     "productType":"head phone",
+#     "productPrice":$50,
+#     "productDetail":"wirless chargable"
+#  }

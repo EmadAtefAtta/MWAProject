@@ -25,18 +25,18 @@ const handleAddProduct = function (req, res, next) {
 // remove a product by Product_id
 
 const handleRemoveProduct = function (req, res, next) {
-
+console.log("req.params.id")
   Product.findByIdAndRemove(req.params.id, function (err) {
     if (err) return next(err);
-    res.send('Deleted successfully!');
+    res.json({success: 1, msg: 'Product deleted successfully'});
   })
 };
 
 // update a product  by Product_id
 const handleUpdateProduct = function (req, res, next) {
-  Product.findByIdAndUpdate(req.params.id, { $set: req.body }, function (err, product) {
+   Product.findByIdAndUpdate(req.params.id, { $set: req.body }, function (err, product) {
     if (err) return next(err);
-    res.send('Product udpated.');
+    res.json('Product udpated.');
   });
 };
 
