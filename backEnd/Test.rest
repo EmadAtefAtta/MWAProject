@@ -31,7 +31,7 @@
 
 # GET http://localhost:3000/product/AllProducts/5e388f9e83a39531203a102e HTTP/1.1
 
-# DELETE http://localhost:3000/admin/removeProduct/5e3889c0b07ea71e74d32700 HTTP/1.1
+# DELETE http://localhost:3000/admin/removeProduct/5e391a338b573b26a09712a0 HTTP/1.1
 
 PUT  http://localhost:3000/admin/updateProduct/5e388f9e83a39531203a102e HTTP/1.1
 content-type: application/json

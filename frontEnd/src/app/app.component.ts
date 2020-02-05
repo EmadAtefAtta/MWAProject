@@ -44,8 +44,6 @@ export class AppComponent {
 
   }
 
-  getProductCard(){
-   return this.productNo=this.userService.getNoProducts();
-  }
+  
 }
 
