@@ -7,6 +7,8 @@ import { AppState } from 'src/app/app.state';
 import * as CounterActions from '../../counter.actions';
 import { AppStore } from 'src/app/app.store';
 import { Store } from 'redux';
+import { User } from 'src/app/model/user';
+import { AuthenticationService } from 'src/app/_services/authentication.service';
 
 @Component({
   selector: 'app-product-details',
@@ -14,14 +16,16 @@ import { Store } from 'redux';
   styleUrls: ['./product-details.component.css']
 })
 export class ProductDetailsComponent implements OnInit {
-  product :product;
+  product: product;
   productId
   counter: number;
-  constructor(@Inject(AppStore) private store: Store<AppState>,private route: ActivatedRoute,private router: Router, private productsService: ProductService,private userService:UserService) {
+  currentUser: User;
+  constructor(@Inject(AppStore) private store: Store<AppState>, private route: ActivatedRoute, private router: Router, private productsService: ProductService, private userService: UserService, private authenticationService: AuthenticationService) {
+    this.authenticationService.currentUser.subscribe(x => this.currentUser = x);
     store.subscribe(() => this.readState());
     this.readState();
-   }
-   readState() {
+  }
+  readState() {
     const state: AppState = this.store.getState() as AppState;
     this.counter = state.counter;
   }
@@ -30,21 +34,27 @@ export class ProductDetailsComponent implements OnInit {
     this.store.dispatch(CounterActions.increment());
   }
   ngOnInit() {
-    this.route.params.subscribe(param=>{
-      
-       this.productsService.getOneProduct(param['id']).subscribe(pro=>{
-        this.product= pro 
-       
-       });
+    this.route.params.subscribe(param => {
+
+      this.productsService.getOneProduct(param['id']).subscribe(pro => {
+        this.product = pro
+
+      });
     });
     console.log(this.product)
-    
+
   }
 
-  addToCart(prod:product){
+  addToCart(prod: product) {
+    if (!this.currentUser)
+    { 
+       this.router.navigate(['/login']);
+    }
+    else
     this.increment()
-    this.userService.addToCard(prod);
-    console.log(this.userService.getNoProducts())
+    // this.userService.addToCard(prod);
+    // console.log(this.userService.getNoProducts())
+
   }
 
 }
